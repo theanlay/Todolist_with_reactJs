@@ -11,11 +11,11 @@ function TodoList() {
     }
 
     const newTodos = [todo, ...todos];
-    
-    const result = newTodos.filter((v,i)=> {
-      return  newTodos.map((val) => val.text).indexOf(v.text) == i
-    })
-   
+    const result = newTodos.filter((v, i) => {
+      return newTodos.map((val) => val.text).indexOf(v.text) == -i;  
+
+    });
+
     console.log(result);
     setTodos(result);
     console.log(...todos);
@@ -46,7 +46,7 @@ function TodoList() {
   };
   return (
     <div>
-      <h1>what's the plan for this day</h1>
+      <h1>what's is your task today? </h1>
       <TodoForm onSubmit={addTodo} />
       <Todo
         todos={todos}
