@@ -12,7 +12,7 @@ function TodoList() {
 
     const newTodos = [todo, ...todos];
     const result = newTodos.filter((v, i) => {
-      return newTodos.map((val) => val.text).indexOf(v.text) == -i;  
+      return newTodos.map((val) => val.text).indexOf(v.text) == i;  
 
     });
 
