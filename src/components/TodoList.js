@@ -15,20 +15,25 @@ function TodoList() {
     console.log(...todos);
   };
 
-  const completeTodo = id =>{
-    let updatedTodos = todos.map(todo =>{
-      if(todo.id === id){
-        todo.isComplet = !todo.isComplet
+  const removeTodo = (id) => {
+    const removeArr = [...todos].filter((todo) => todo.id !== id);
+    setTodos(removeArr);
+  };
+
+  const completeTodo = (id) => {
+    let updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.isComplet = !todo.isComplet;
       }
-      return todo
-    })
-    setTodos(updatedTodos)
-  }
+      return todo;
+    });
+    setTodos(updatedTodos);
+  };
   return (
     <div>
       <h1>what's the plan for this day</h1>
       <TodoForm onSubmit={addTodo} />
-      <Todo todos={todos} completeTodo={completeTodo}/>
+      <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} />
     </div>
   );
 }
