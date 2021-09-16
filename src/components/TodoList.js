@@ -11,7 +11,13 @@ function TodoList() {
     }
 
     const newTodos = [todo, ...todos];
-    setTodos(newTodos);
+    
+    const result = newTodos.filter((v,i)=> {
+      return  newTodos.map((val) => val.text).indexOf(v.text) == i
+    })
+   
+    console.log(result);
+    setTodos(result);
     console.log(...todos);
   };
 
